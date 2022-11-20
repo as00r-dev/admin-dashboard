@@ -12,6 +12,13 @@
 	--xl-font: calc(var(--lg-font) * var(--ratio));
 	--xxl-font: calc(var(--xl-font) * var(--ratio));
 	--xxxl-font: calc(var(--xxl-font) * var(--ratio));
+
+	--bg-main: #121212;
+	--bg-secondary: #1d1d1d;
+	--green: #d2f565;
+	--green-light: #dcf689;
+	--red: #e84f2d;
+	--white: whitesmoke;
 }
 
 /* Simple CSS Reset */
@@ -27,6 +34,9 @@
 body {
 	line-height: 1.5;
 	font-family: "Poppins", sans-serif;
+	width: 100%;
+	height: 100vh;
+	color: var(--white);
 }
 
 /* Typography */
@@ -69,3 +79,14 @@ h6 {
 		--ratio: 1.125;
 	}
 }
+
+/* Wrapper */
+.dashboard-wrapper {
+	background: var(--bg-main);
+	display: grid;
+	grid-template-columns: 1fr 3fr 1fr;
+	width: 100%;
+	height: 100vh;
+}
+
+/* header */
