@@ -44,7 +44,7 @@ body {
 p {
 	margin-top: min(1rem, 5%);
 	font-size: var(--sm-font);
-	color: #121212a9;
+	color: var(--whitesmoke);
 }
 
 h1 {
@@ -73,6 +73,10 @@ h6 {
 	line-height: 1.3;
 }
 
+ul {
+	list-style-type: none;
+}
+
 /* Basic Responsive Type */
 @media screen and (max-width: 768px) {
 	:root {
@@ -82,11 +86,55 @@ h6 {
 
 /* Wrapper */
 .dashboard-wrapper {
+	padding: 64px;
 	background: var(--bg-main);
 	display: grid;
 	grid-template-columns: 1fr 3fr 1fr;
+	grid-template-rows: 1fr 1fr 2fr 1fr;
 	width: 100%;
 	height: 100vh;
 }
 
+.dashboard-wrapper > div {
+	border: 1px solid brown;
+}
+
 /* header */
+.header {
+	grid-column: 2 / -1;
+	grid-row: 1 / 2;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logo img {
+	width: 150px;
+	height: 150px;
+}
+
+.header ul li {
+	float: left;
+}
+
+.account img {
+	width: 50px;
+	height: 50px;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+/* Sidebar */
+.sidebar {
+	grid-column: 1 / 2;
+	grid-row: 1 / 5;
+}
+
+/* Analytics Cards */
+.analytics-card {
+	grid-column: 2 / -1;
+	grid-row: 2 / 3;
+}
+/* Analytics Graphs */
+
+/* Analytics Table */
