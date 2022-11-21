@@ -157,10 +157,16 @@ i {
 .header p {
 	margin-top: 0;
 }
+
+.header nav li:hover {
+	color: var(--green);
+	cursor: pointer;
+}
+
 /* Sidebar */
 .logo img {
-	height: 32px;
-	width: 32px;
+	width: 100px;
+	height: auto;
 }
 
 .sidebar {
@@ -169,6 +175,50 @@ i {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	border-right: 0.5px solid rgba(128, 128, 128, 0.336);
+	margin-right: 16px;
+}
+
+.sidebar > * {
+	padding: 32px;
+}
+
+.sidebar .logo {
+	border-bottom: 0.5px solid rgba(128, 128, 128, 0.336);
+	border-bottom-right-radius: 32px;
+}
+
+.sidebar .mid {
+	border-top: 0.5px solid rgba(128, 128, 128, 0.336);
+	border-top-right-radius: 32px;
+	border-bottom: 0.5px solid rgba(128, 128, 128, 0.336);
+	border-bottom-right-radius: 32px;
+	flex: 1;
+}
+
+.sidebar .bot {
+	border-top: 0.5px solid rgba(128, 128, 128, 0.336);
+	border-top-right-radius: 32px;
+}
+
+.sidebar nav li {
+	margin-bottom: 32px;
+	cursor: pointer;
+	color: var(--gray);
+	transition: all 0.3s ease-in-out;
+}
+
+.sidebar nav li:hover {
+	font-weight: 500;
+	color: var(--white);
+}
+
+.sidebar nav li:hover i {
+	color: var(--green);
+}
+
+.sidebar nav li.logout:hover i {
+	color: var(--red);
 }
 
 /* Analytics Cards */
@@ -187,6 +237,8 @@ i {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	cursor: pointer;
+	position: relative;
 }
 
 .card .title span {
@@ -238,6 +290,42 @@ i {
 	border-bottom-right-radius: 16px;
 }
 
+.card:hover,
+.card:hover .percentage {
+	background: var(--green);
+	color: var(--bg-main);
+	animation: bg-transition 0.4s ease-in-out forwards;
+}
+
+.card > * {
+	z-index: 1;
+}
+
+.card:hover::before {
+	content: "";
+	width: 0;
+	height: 0;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-bottom: 45px solid var(--green-light);
+	position: absolute;
+	right: 16px;
+	bottom: 66px;
+	z-index: 0;
+}
+
+.card:hover::after {
+	content: "";
+	width: 0;
+	height: 0;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-bottom: 45px solid var(--green-light);
+	position: absolute;
+	right: 16px;
+	bottom: 0;
+	z-index: 0;
+}
 /* Analytics Graphs */
 .analytics-graph {
 	grid-column: 2 / 4;
@@ -248,4 +336,13 @@ i {
 .analytics-table {
 	grid-column: 2 / 4;
 	grid-row: 4 / 5;
+}
+
+@keyframes bg-transition {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
