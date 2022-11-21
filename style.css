@@ -19,6 +19,7 @@
 	--green-light: #dcf689;
 	--red: #e84f2d;
 	--white: whitesmoke;
+	--gray: #777777;
 }
 
 /* Simple CSS Reset */
@@ -44,7 +45,7 @@ body {
 p {
 	margin-top: min(1rem, 5%);
 	font-size: var(--sm-font);
-	color: var(--whitesmoke);
+	color: var(--gray);
 }
 
 h1 {
@@ -84,20 +85,25 @@ ul {
 	}
 }
 
+i {
+	margin-right: 16px;
+}
+
 /* Wrapper */
 .dashboard-wrapper {
 	padding: 64px;
 	background: var(--bg-main);
 	display: grid;
 	grid-template-columns: 1fr 3fr 1fr;
-	grid-template-rows: 1fr 1fr 2fr 1fr;
+	grid-template-rows: 1fr 2fr 3fr 1fr;
+	gap: 16px;
 	width: 100%;
 	height: 100vh;
 }
 
-.dashboard-wrapper > div {
+/* .dashboard-wrapper > div {
 	border: 1px solid brown;
-}
+} */
 
 /* header */
 .header {
@@ -105,36 +111,141 @@ ul {
 	grid-row: 1 / 2;
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
-}
-
-.logo img {
-	width: 150px;
-	height: 150px;
+	align-items: flex-start;
 }
 
 .header ul li {
 	float: left;
+	margin-right: 16px;
+}
+
+.account ul {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.account ul li {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .account img {
-	width: 50px;
-	height: 50px;
+	width: 32px;
+	height: 32px;
+	margin-right: 8px;
 	object-fit: cover;
 	border-radius: 50%;
 }
 
+.account .notification {
+	position: relative;
+}
+
+.account .notification::before {
+	content: "";
+	width: 6px;
+	height: 6px;
+	border-radius: 100%;
+	background: var(--red);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.header p {
+	margin-top: 0;
+}
 /* Sidebar */
+.logo img {
+	height: 32px;
+	width: 32px;
+}
+
 .sidebar {
 	grid-column: 1 / 2;
 	grid-row: 1 / 5;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 /* Analytics Cards */
 .analytics-card {
 	grid-column: 2 / -1;
 	grid-row: 2 / 3;
+	display: flex;
 }
+
+.analytics-card .card {
+	padding: 16px;
+	flex: 1;
+	background: var(--bg-secondary);
+	border-left: 0.25px solid rgba(128, 128, 128, 0.336);
+	border-right: 0.25px solid rgba(128, 128, 128, 0.336);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.card .title span {
+	font-weight: 500;
+}
+
+.card .title i {
+	background: var(--gray);
+	padding: 8px;
+	border-radius: 100%;
+}
+
+.card .title {
+	margin-bottom: 32px;
+}
+
+.card .data {
+	font-size: var(--xl-font);
+	font-weight: 500;
+	margin-bottom: 16px;
+}
+
+.card .sub-data {
+	display: flex;
+	gap: 16px;
+}
+
+.card .percentage i {
+	margin-right: 8px;
+}
+
+.card.profit .percentage {
+	color: var(--green);
+}
+
+.card.loss .percentage {
+	color: var(--red);
+}
+
+.card:first-child {
+	border-left: 0;
+	border-top-left-radius: 16px;
+	border-bottom-left-radius: 16px;
+}
+
+.card:last-child {
+	border-right: 0;
+	border-top-right-radius: 16px;
+	border-bottom-right-radius: 16px;
+}
+
 /* Analytics Graphs */
+.analytics-graph {
+	grid-column: 2 / 4;
+	grid-row: 3 / 4;
+}
 
 /* Analytics Table */
+.analytics-table {
+	grid-column: 2 / 4;
+	grid-row: 4 / 5;
+}
